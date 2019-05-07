@@ -75,7 +75,7 @@ example.tex        An LaTeX source file showing the use of the vutinfth
 intro.bib          The bibliography file of intro.tex.
 intro.tex          The LaTeX source file of a document that gives an
                      introduction to LaTeX.
-lppl.txt           The LaTeX Project Pulic License v1.3c.
+lppl.txt           The LaTeX Project Public License v1.3c.
 README.txt         This file.
 vutinfth.dtx       The documented source code and documentation file of the
                      vutinfth document class.
@@ -118,5 +118,5 @@ This work consists of the files vutinfth.dtx and vutinfth.ins
 and the derived file vutinfth.cls.
 This work also consists of the file intro.tex.
 
-The 'TU Wien' logo and 'Fakultät für !nformatik' logo are copyright of the TU
+The 'TU Wien' logo and 'FakultÃ¤t fÃ¼r !nformatik' logo are copyright of the TU
 Wien.
