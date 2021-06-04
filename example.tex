@@ -3,12 +3,13 @@
 % Define convenience functions to use the author name and the thesis title in the PDF document properties.
 \newcommand{\authorname}{surname forname} % The author name without titles.
 \newcommand{\thesistitle}{Title of the Thesis} % The title of the thesis. The English version should be used, if it exists.
+\newcommand{\tranlatedtitle}{Titel der Arbeit} % The title of the thesis. The English version should be used, if it exists.
 
 \begin{filecontents}{\jobname.xmpdata}
-    \Title{\thesistitle}
+    \Title{\thesistitle\sep[de]\tranlatedtitle}
     \Author{\authorname}
     \Language{en-US}
-    \Keywords{a\sep list\sep of\sep keywords}
+    \Keywords{a\sep list\sep of\sep keywords\sep[de]Eine\sep[de]Liste\sep[de]von\sep[de]Stichwörtern}
     \Publisher{Technische Universität Wien}
 \end{filecontents}
 
