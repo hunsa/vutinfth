@@ -1,4 +1,16 @@
 % Copyright (C) 2014-2020 by Thomas Auzinger <thomas@auzinger.name>
+\pdfminorversion=7
+% Define convenience functions to use the author name and the thesis title in the PDF document properties.
+\newcommand{\authorname}{surname forname} % The author name without titles.
+\newcommand{\thesistitle}{Title of the Thesis} % The title of the thesis. The English version should be used, if it exists.
+
+\begin{filecontents}{\jobname.xmpdata}
+    \Title{\thesistitle}
+    \Author{\authorname}
+    \Language{en-US}
+    \Keywords{a\sep list\sep of\sep keywords}
+    \Publisher{Technische Universität Wien}
+\end{filecontents}
 
 \documentclass[draft,final]{vutinfth} % Remove option 'final' to obtain debug information.
 
@@ -22,19 +34,29 @@
 \usepackage{todonotes} % Provides tooltip-like todo notes.
 \usepackage{hyperref}  % Enables cross linking in the electronic document version. This package has to be included second to last.
 \usepackage[acronym,toc]{glossaries} % Enables the generation of glossaries and lists fo acronyms. This package has to be included last.
-
-% Define convenience functions to use the author name and the thesis title in the PDF document properties.
-\newcommand{\authorname}{Forename Surname} % The author name without titles.
-\newcommand{\thesistitle}{Title of the Thesis} % The title of the thesis. The English version should be used, if it exists.
-
+\usepackage[a-2u,pdf17]{pdfx}
+\input{glyphtounicode.tex}    %Part of modern distribution
+\input{glyphtounicode-cmr.tex}     %Additionnal glyph: You must grab it from pdfx package
+\pdfgentounicode=1
+\pdfinterwordspaceon
+\pdfomitcharset 1
+\usepackage{colorprofiles}
+\usepackage{cmap}
+\ifdefined\pdffontattr% \ifdefined is part of the e-TeX extension, which is part of any modern LaTeX compiler.
+  \immediate\pdfobj stream file {umsa.cmap}
+  {\usefont{U}{msa}{m}{n}\pdffontattr\font{/ToUnicode \the\pdflastobj\space 0 R}}
+  \immediate\pdfobj stream file {umsb.cmap}
+  {\usefont{U}{msb}{m}{n}\pdffontattr\font{/ToUnicode \the\pdflastobj\space 0 R}}
+\fi
 % Set PDF document properties
 \hypersetup{
     pdfpagelayout   = TwoPageRight,           % How the document is shown in PDF viewers (optional).
-    linkbordercolor = {Melon},                % The color of the borders of boxes around crosslinks (optional).
-    pdfauthor       = {\authorname},          % The author's name in the document properties (optional).
-    pdftitle        = {\thesistitle},         % The document's title in the document properties (optional).
-    pdfsubject      = {Subject},              % The document's subject in the document properties (optional).
-    pdfkeywords     = {a, list, of, keywords} % The document's keywords in the document properties (optional).
+    % linkbordercolor = {Melon},                % The color of the borders of boxes around crosslinks (optional).
+    colorlinks,
+    linkcolor={black}, % auch keine grellen Rahmen im View
+    citecolor={black},
+    urlcolor={black},
+    bookmarksnumbered
 }
 
 \setpnumwidth{2.5em}        % Avoid overfull hboxes in the table of contents (see memoir manual).
