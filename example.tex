@@ -3,10 +3,10 @@
 % Define convenience functions to use the author name and the thesis title in the PDF document properties.
 \newcommand{\authorname}{surname forname} % The author name without titles.
 \newcommand{\thesistitle}{Title of the Thesis} % The title of the thesis. The English version should be used, if it exists.
-\newcommand{\tranlatedtitle}{Titel der Arbeit} % The title of the thesis. The English version should be used, if it exists.
+\newcommand{\tranlatedtitle}{Titel der Arbeit} % Translated title of the thesis.
 
 \begin{filecontents}{\jobname.xmpdata}
-    \Title{\thesistitle\sep[de]\tranlatedtitle}
+    \Title{\thesistitle}
     \Author{\authorname}
     \Language{en-US}
     \Keywords{a\sep list\sep of\sep keywords\sep[de]Eine\sep[de]Liste\sep[de]von\sep[de]Stichwörtern}
@@ -91,7 +91,7 @@
 % Required data.
 \setregnumber{0123456}
 \setdate{01}{01}{2001} % Set date with 3 arguments: {day}{month}{year}.
-\settitle{\thesistitle}{Titel der Arbeit} % Sets English and German version of the title (both can be English or German). If your title contains commas, enclose it with additional curvy brackets (i.e., {{your title}}) or define it as a macro as done with \thesistitle.
+\settitle{\thesistitle}{\tranlatedtitle} % Sets English and German version of the title (both can be English or German). If your title contains commas, enclose it with additional curvy brackets (i.e., {{your title}}) or define it as a macro as done with \thesistitle.
 \setsubtitle{Optional Subtitle of the Thesis}{Optionaler Untertitel der Arbeit} % Sets English and German version of the subtitle (both can be English or German).
 
 % Select the thesis type: bachelor / master / doctor / phd-school.
