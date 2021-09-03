@@ -48,6 +48,6 @@ makeindex -t "$SOURCE.ilg" -o "$SOURCE.ind" "$SOURCE.idx"
 pdflatex "$SOURCE"
 pdflatex "$SOURCE"
 
-echo
-echo
-echo Thesis document compiled.
+echo >&2
+echo >&2
+echo Thesis document compiled. >&2
