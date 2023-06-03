@@ -89,7 +89,7 @@
 % ^^A\DoNotIndex{\@empty,\@namedef,\@namelet,\@nameuse,\csname,\endcsname}
 % ^^A\DoNotIndex{\",\\}
 % ^^A\DoNotIndex{\else,\fi,\ifcsempty,\ifcsstring,\ifdefstrequal,\ifdefstring,\ifdraftdoc,\ifstrempty,\ifstrequal,\ifundef}
-% ^^A\DoNotIndex{\baselineskip,\bfseries,\bigskip,\centering,\chapter,\chapterstyle,\cleardoublepage,\displaydate,\expandafter,\fontsize,\footruleskip,\global,\graphicspath,\hfill,\hspace,\includegraphics,\languagename,\makeevenfoot,\makeevenhead,\makefootrule,\makeheadposition,\makeoddfoot,\makeoddhead,\makepagestyle,\makerunningwidth,\newdata,\newgeometry,\newlength,\pagestyle,\par,\parindent,\parskip,\raisebox,\relax,\restoregeometry,\rule,\selectfont,\selectlanguage,\setkeys,\setlength,\sfdefault,\sffamily,\smallskip,\space,\ss,\string,\textwidth,\thispagestyle,\vfill,\vspace}
+% ^^A\DoNotIndex{\baselineskip,\bfseries,\bigskip,\centering,\chapter,\chapterstyle,\cleardoublepage,\DTMusedate,\expandafter,\fontsize,\footruleskip,\global,\graphicspath,\hfill,\hspace,\includegraphics,\languagename,\makeevenfoot,\makeevenhead,\makefootrule,\makeheadposition,\makeoddfoot,\makeoddhead,\makepagestyle,\makerunningwidth,\newdata,\newgeometry,\newlength,\pagestyle,\par,\parindent,\parskip,\raisebox,\relax,\restoregeometry,\rule,\selectfont,\selectlanguage,\setkeys,\setlength,\sfdefault,\sffamily,\smallskip,\space,\ss,\string,\textwidth,\thispagestyle,\vfill,\vspace}
 %
 % \newcommand{\ispoly}{\textsuperscript{P}}
 %
@@ -217,7 +217,7 @@
 % \subsubsection{Dates}
 %
 % \DescribeMacro{\setdate}
-% All commands in this section are called with three madatory arguments, e.g., as |\command|\marg{day}\marg{month}\marg{year}. The syntax is identical to the last three arguments of the |\newdate| command of the |datetime| package, from which these commands derive. The following dates can be set:
+% All commands in this section are called with three madatory arguments, e.g., as |\command|\marg{day}\marg{month}\marg{year}. These commands derive from the |\DTMsavedate| command of the |datetime2| package. The following dates can be set:
 % \begin{center}
 % \begin{tabular}{lllc}
 %   \toprule
@@ -495,7 +495,7 @@
 \RequirePackage{courier}%
 \RequirePackage[T1]{fontenc}%
 \RequirePackage[english,naustrian]{babel}%
-\RequirePackage[nodayofweek]{datetime}%
+\RequirePackage[useregional]{datetime2}%
 \RequirePackage{geometry}%
 \RequirePackage{calc}%
 \RequirePackage{etoolbox}%
@@ -583,10 +583,11 @@
 % \subsubsection{Dates}
 %
 % \begin{macro}{\setdate}
+% \changes{v1.011=v1.11}{2021/04/20}{Updated to datetime2 package.}
 % Creates the internal storage for the signing date.
 %    \begin{macrocode}
 \newcommand{\setdate}[3]{%
-  \newdate{vutinfth@date@signing}{#1}{#2}{#3}%
+  \DTMsavedate{vutinfth@date@signing}{#3-#2-#1}%
 }%
 %    \end{macrocode}
 % \end{macro}
@@ -1519,6 +1520,7 @@
 % \end{macro}
 %
 % \begin{macro}{\SignatureFields}
+% \changes{v1.011=v1.11}{2021/04/20}{Updated to datetime2 package.}
 % Generates a block with signatures and an optional place-date entry. The first argument is optional and adds an entry with date and place |[y]|, or adds corresponding whitespace |[h]| or adds nothing |[n]|, which is also the default value. The second arguments adds a rule and the given text below it, if a text is given, or the corresponding whitespace, if not. The third argument adds a rule and the given text below it, if a text is given.
 %    \begin{macrocode}
 \newcommand{\SignatureFields}[3][n]{%
@@ -1528,7 +1530,7 @@
           \vutinfth@placedate@width
         }%
         \vutinfth@polylingual@Place,
-        \displaydate{vutinfth@date@signing}\vspace*{\baselineskip}%
+        \DTMusedate{vutinfth@date@signing}\vspace*{\baselineskip}%
       \end{minipage}%
       \hfill
     }{}%
