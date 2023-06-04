@@ -90,6 +90,11 @@ The minitoc package is incompatible with this document class since the
 incompatibility of the memoir document class is inherited. Use the titletoc
 package as a replacement.
 
+This document class uses the naustrian language of the babel package. It might
+be necessary to install the babel-german explicitly (e.g., using
+                       tlmgr install babel-german
+on Linux.
+
 
 Acknowledgements
 ----------------
@@ -99,7 +104,7 @@ improvements in version 1.4.
 
 Copyright Notice
 ----------------
-Copyright (C) 2014-2021 by Thomas Auzinger <thomas@auzinger.name>
+Copyright (C) 2014-2023 by Thomas Auzinger <thomas@auzinger.name>
 
 This work may be distributed and/or modified under the
 conditions of the LaTeX Project Public License, either version 1.3
