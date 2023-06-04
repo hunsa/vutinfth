@@ -71,7 +71,7 @@
 \settitle{\thesistitle}{Titel der Arbeit} % Sets English and German version of the title (both can be English or German). If your title contains commas, enclose it with additional curvy brackets (i.e., {{your title}}) or define it as a macro as done with \thesistitle.
 \setsubtitle{Optional Subtitle of the Thesis}{Optionaler Untertitel der Arbeit} % Sets English and German version of the subtitle (both can be English or German).
 
-% Select the thesis type: bachelor / master / doctor / phd-school.
+% Select the thesis type: bachelor / master / doctor.
 % Bachelor:
 \setthesis{bachelor}
 %
@@ -82,14 +82,11 @@
 % Doctor:
 %\setthesis{doctor}
 %\setdoctordegree{rer.soc.oec.}% rer.nat. / techn. / rer.soc.oec.
-%
-% Doctor at the PhD School
-%\setthesis{phd-school} % Deactivate non-English title pages (see below)
 
 % For bachelor and master:
 \setcurriculum{Media Informatics and Visual Computing}{Medieninformatik und Visual Computing} % Sets the English and German name of the curriculum.
 
-% For dissertations at the PhD School:
+% Optional reviewer data:
 \setfirstreviewerdata{Affiliation, Country}
 \setsecondreviewerdata{Affiliation, Country}
 
@@ -100,7 +97,7 @@
 % The structure of the thesis has to conform to the guidelines at
 %  https://informatics.tuwien.ac.at/study-services
 
-\addtitlepage{naustrian} % German title page (not for dissertations at the PhD School).
+\addtitlepage{naustrian} % German title page.
 \addtitlepage{english} % English title page.
 \addstatementpage
 
