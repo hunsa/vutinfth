@@ -24,6 +24,8 @@ compile_example:
     - tlmgr install ccicons csquotes datatool datetime2 datetime2-english doclicense
       enumitem glossaries glossaries-english hypdoc idxlayout ifoddpage mfirstuc
       morewrites multirow nag pdfx relsize todonotes xfor xifthen xmpincl xstring
+    # Ensure creation of the naustrian language.
+    - tlmgr install babel-german datetime2-german glossaries-german
     - sh ./build-all.sh # Build document class and example file.
   rules:
     - when: always
@@ -36,7 +38,7 @@ compile_example:
 compare_with_reference:
   stage: test
   script:
-    - apk add --no-cache poppler-utils imagemagick # Install comparison tools.
+    - apk add --no-cache poppler-utils imagemagick imagemagick-pdf # Install comparison tools.
     # Count the pages of the compiled example file and its reference.
     - pagecount=$(pdfinfo example.pdf | grep Pages | awk '{print $2}')
     - pagecount_ref=$(pdfinfo example-ref.pdf | grep Pages | awk '{print $2}')
