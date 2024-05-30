@@ -75,7 +75,7 @@ example.tex        An LaTeX source file showing the use of the vutinfth
 intro.bib          The bibliography file of intro.tex.
 intro.tex          The LaTeX source file of a document that gives an
                      introduction to LaTeX.
-lppl.txt           The LaTeX Project Pulic License v1.3c.
+lppl.txt           The LaTeX Project Public License v1.3c.
 README.txt         This file.
 vutinfth.dtx       The documented source code and documentation file of the
                      vutinfth document class.
@@ -104,7 +104,7 @@ improvements in version 1.4.
 
 Copyright Notice
 ----------------
-Copyright (C) 2014-2023 by Thomas Auzinger <thomas@auzinger.name>
+Copyright (C) 2014-2024 by Thomas Auzinger <thomas@auzinger.name>
 
 This work may be distributed and/or modified under the
 conditions of the LaTeX Project Public License, either version 1.3
